@@ -1,0 +1,21 @@
+GET http://localhost:8080/ping
+
+###
+POST http://localhost:8080/login
+
+{
+  "username": "admin",
+  "password": "admin-auth"
+}
+
+### 
+GET http://localhost:8080/verify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDc5MDU0OTgsImlzcyI6ImF1dGgtand0IiwidXNlcm5hbWUiOiJhZG1pbiJ9.xWL_sEII70WEG98MToQPMTEj1N-xrgTV1M60JWdZkb8
+
+### 
+POST http://localhost:8080/refresh
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDc5MDU0NDgsImlzcyI6ImF1dGgtand0IiwidXNlcm5hbWUiOiJhZG1pbiJ9.bwayKXd3_kbt5SrPCRXZvaVML2mNrpNQkLZLVoNJEIQ
+
+{
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDc5OTE4MTgsImlzcyI6ImF1dGgtand0IiwidXNlcm5hbWUiOiJhZG1pbiJ9.6sV3bv0srkqITQAjfkem6WnebBe9nezGVmdzvbi7980"
+}
