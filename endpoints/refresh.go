@@ -29,7 +29,7 @@ func refreshSetup(
 	mid *protocol.Middleware,
 ) ([]gin.HandlerFunc, protocol.ErrorCode) {
 	return []gin.HandlerFunc{
-		mid.VerifyAllowExpired,
+		mid.EnsureSignature,
 		refresh,
 	}, protocol.ERR_NONE
 }

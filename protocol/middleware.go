@@ -16,11 +16,18 @@ type Middleware struct {
 	AccessTokenSecret []byte
 }
 
-func (m *Middleware) VerifyAllowExpired(ctx *gin.Context) {
+// Middleware function to ensures the validity of authorization signature
+// before forwards call to handler.
+//
+// Disclaimer, this is not ensuring the user is authorized. Even if the signatures is valid,
+// the jwt might've been expired. Thus, the handler may receive an invalid/expired token.
+func (m *Middleware) EnsureSignature(ctx *gin.Context) {
 	m.verifyAndSetClaims(ctx, true)
 }
 
-func (m *Middleware) Verify(ctx *gin.Context) {
+// Middleware function to ensures the user is authorized to his claims.
+// The jwt signature is verified and not expired.
+func (m *Middleware) EnsureAuthorized(ctx *gin.Context) {
 	m.verifyAndSetClaims(ctx, false)
 }
 

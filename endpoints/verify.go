@@ -21,7 +21,7 @@ func verifySetup(
 	mid *protocol.Middleware,
 ) ([]gin.HandlerFunc, protocol.ErrorCode) {
 	return []gin.HandlerFunc{
-		mid.Verify,
+		mid.EnsureAuthorized,
 		verify,
 	}, protocol.ERR_NONE
 }
